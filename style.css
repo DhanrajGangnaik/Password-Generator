@@ -6,24 +6,32 @@
     font-family: 'Roboto', sans-serif;
 }
 
-/* Style the body to have a flex layout to center the content, and a rich blue background */
+/* Style the body to have a flex layout to center the content, with a radial gradient background */
 body {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #002855; /* Deep rich blue background */
-    color: #000000; /* Off-white text color for contrast */
+    background: linear-gradient(to right, #591DA9, #051960); /* Darker gradient */
+    color: #616161; /* Changed to off-white text color for contrast */
 }
 
-/* Style the card container with a light gray for a modern look */
+/* Style the card container with a gradient for a modern look */
 .card {
-    background-color: #f7f7f7; /* Light gray for the card background */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    background-image: linear-gradient(to bottom, #ffffff, #CFCBD2, #C9B9ED, #B863DA); /* Starting with white to ensure a lighter top */
+    border: 1px solid #d1d1d1; /* Light border for subtle definition */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow for a more pronounced effect */
     border-radius: 15px; /* Smooth rounded corners for the card */
     padding: 20px;
     width: 340px;
     margin: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+
+.card:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Increased shadow on hover for a 'pop-out' effect */
 }
 
 /* Style the card title */
@@ -49,7 +57,6 @@ input[type='text'] {
 }
 
 /* Style the buttons with a bright accent color */
-/* Style the buttons with a bright accent color and dark text */
 button {
     display: block;
     width: 100%;
@@ -67,8 +74,9 @@ button {
 /* Hover styles for buttons */
 button:hover {
     background-color: #ed5a53; /* A slightly darker shade for hover effect */
-    color: #f7f7f7; /* Off-white text color for better contrast on hover */
+    color: #ffffff; /* Pure white text color for better contrast on hover - comment corrected */
 }
+
 /* Style the output text field */
 #passwordOutput {
     background-color: #e3e3e3; /* Consistent background color with input fields */
