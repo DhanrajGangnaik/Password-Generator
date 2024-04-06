@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PASSWORD Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <script src="passwordgenerator.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daisyui"></script>
+    <script src="passwordgenerator.js"></script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">   
+<div class="container mx-auto">
+    <div class="flex items-center h-screen w-full justify-center">
+        <div class="max-w-xs">
+            <div class="bg-white shadow-xl rounded-lg py-3">
+                <div class="p-2">
+                    <h3 class="text-center text-xl text-gray-900 font-medium leading-8">Password Generator</h3>
+                    <div class="text-center text-gray-400 text-xs font-semibold">
+                        <p>Generate a secure password</p>
+                    </div>
+                    <div class="text-xs my-3">
+                        <div class="mb-2">
+                            <label class="text-gray-500 font-semibold">Letters</label>
+                            <input id="letters" type="number" value="4" class="input input-bordered input-sm w-full max-w-xs">
+                        </div>
+                        <div class="mb-2">
+                            <label class="text-gray-500 font-semibold">Numbers</label>
+                            <input id="numbers" type="number" value="4" class="input input-bordered input-sm w-full max-w-xs">
+                        </div>
+                        <div class="mb-2">
+                            <label class="text-gray-500 font-semibold">Symbols</label>
+                            <input id="symbols" type="number" value="2" class="input input-bordered input-sm w-full max-w-xs">
+                        </div>
+                    </div>
+
+                    <div class="text-center my-3">
+                        <button class="btn" onclick="generatePassword()">Generate</button>
+                    </div>
+                    <div class="text-center">
+                        <input id="passwordOutput" type="text" class="input input-bordered w-full max-w-xs text-center" readonly>
+                    </div>
+                    <!-- Copy Button -->
+                    <div class="text-center my-3">
+                        <button id="copyButton" class="btn" style="display: none;" onclick="copyPassword()">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function generatePassword() {
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=';
+    var letters = parseInt(document.getElementById('letters').value);
+    var numbers = parseInt(document.getElementById('numbers').value);
+    var symbols = parseInt(document.getElementById('symbols').value);
+    var password = '';
+    var letterCount = 0;
+    var numberCount = 0;
+    var symbolCount = 0;
+
+    var totalCount = letters + numbers + symbols;
+
+    while (letterCount < letters || numberCount < numbers || symbolCount < symbols) {
+        var characterType = Math.floor(Math.random() * 3);
+        if (characterType === 0 && letterCount < letters) {
+            password += characters.charAt(Math.floor(Math.random() * 52));
+            letterCount++;
+        } else if (characterType === 1 && numberCount < numbers) {
+            password += characters.charAt(Math.floor(Math.random() * 10) + 52);
+            numberCount++;
+        } else if (characterType === 2 && symbolCount < symbols) {
+            password += characters.charAt(Math.floor(Math.random() * 32) + 62);
+            symbolCount++;
+        }
+    }
+    document.getElementById('passwordOutput').value = password;
+    // Reveal the copy button after password generation
+    document.getElementById('copyButton').style.display = 'inline-block';
+}
+
+function copyPassword() {
+    var password = document.getElementById('passwordOutput');
+    navigator.clipboard.writeText(password.value)
+        .then(() => {
+            console.log('Password copied to clipboard');
+        })
+        .catch(err => {
+            console.error('Error in copying text: ', err);
+        });
+}
+</script>
+<script src="passwordgenerator.js"></script>
+</body>
+</html>

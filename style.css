@@ -1,0 +1,80 @@
+/* Apply a basic reset */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Style the body to have a flex layout to center the content, and a rich blue background */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #002855; /* Deep rich blue background */
+    color: #000000; /* Off-white text color for contrast */
+}
+
+/* Style the card container with a light gray for a modern look */
+.card {
+    background-color: #f7f7f7; /* Light gray for the card background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    border-radius: 15px; /* Smooth rounded corners for the card */
+    padding: 20px;
+    width: 340px;
+    margin: 20px;
+}
+
+/* Style the card title */
+.card-title {
+    font-size: 1.5rem;
+    color: #002855; /* Dark blue color for heading to match the body background */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Style the form labels and inputs */
+label,
+input[type='number'],
+input[type='text'] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: none; /* No border for a cleaner input field */
+    background-color: #e3e3e3; /* Slightly darker gray for input fields */
+    color: #002855; /* Dark text color for readability */
+}
+
+/* Style the buttons with a bright accent color */
+/* Style the buttons with a bright accent color and dark text */
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 10px;
+    color: #002855; /* Deep blue font color */
+    background-color: #ff6f61; /* Bright coral accent color for buttons */
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Transition for color added */
+}
+
+/* Hover styles for buttons */
+button:hover {
+    background-color: #ed5a53; /* A slightly darker shade for hover effect */
+    color: #f7f7f7; /* Off-white text color for better contrast on hover */
+}
+/* Style the output text field */
+#passwordOutput {
+    background-color: #e3e3e3; /* Consistent background color with input fields */
+    color: #002855; /* Dark color for output text for readability */
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    border: none; /* No border for a modern look */
+}
